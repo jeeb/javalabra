@@ -1,0 +1,5 @@
+# Tuntikirjanpito
+
+- 29.10.2012 [14-16]
+*  Git-repon teko, IDEA:n perussäätö (JDK:n PATHin säätö yms.)
+*  Aiheen valinta  
