@@ -3,3 +3,7 @@
 - 29.10.2012 [14-16]
 *  Git-repon teko, IDEA:n perussäätö (JDK:n PATHin säätö yms.)
 *  Aiheen valinta  
+
+- 30.10.2012 [21-22]
+* Tehty tehtävänmäärittely dokumentaatioon (tehtavanmaarittely.txt)
+* Ajatellaan tiedostoformaattien rakenteita
