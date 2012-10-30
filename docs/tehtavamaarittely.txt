@@ -1,0 +1,24 @@
+::Sanaparidrilli::
+
+Ohjelma, joka lukee tiedostosta sanapareja, ja tenttaa niitä käyttäjältä.
+
+* Sana = stringi, saattaa myös olla enemmän kuin yksi sana, mutta ohjelman puolesta on aivan sama kaikissa tapauksissa.
+
+- Luetaan tiedostosta kahden stringin pareja niin monta kuin niitä tiedostosta löytyy, tiedostoformaatti vielä ajattelun alla.
+- Näytetään käyttäjälle randomisoidusta sanaparista toinen, ja kysytään jäljelle jäänyttä
+- Jos vastattu väärin, kysytään uudestaan. Jos vastattu väärin kolme kertaa, kysytään jos käyttäjä haluaa antaa periksi kyseisen sanaparin kohdalla tällä hetkellä
+- Jos vastattu oikein, randomisoidaan uusi sanapari ja kysytään sitä
+- Jos valittu poistuminen, ohjelmasta poistutaan.
+
+* Lisätään mahdollisuus lisätä ja poistaa sanapareja sanaparitiedostosta.
+* Lisätään mahdollisuus käyttää ohjelmistoa eri käyttäjinä, eli erillisestä käyttäjätiedostosta haetaan käyttäjänimiä, ja mahdollisia lisätietoja. Tiedostoformaatti vielä ajatuksen alla.
+
+
+[ Mahdollinen sanaparitiedostoformaatti ]
+sana1|sana2|mahdollinen lisäsälä\N
+
+(huono puoli: ei anna mahdollisuutta suoraan laittaa \N:iä taikka |:iä  "sanoihin")
+(hyvä puoli: helposti parsetettavissa readLinella per sanapari)
+
+[ Mahdollinen käyttäjätietoformaatti ]
+username|mahdollinen lisäsälä\N
