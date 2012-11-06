@@ -17,7 +17,7 @@ public class WordTrainer {
      * Requires the caller to deal with the possible IOException.
      *
      * @param  filename    the file name of the file to be opened
-     * @return FileReader  a FileReader object that points towards the file name specified in the parameter
+     * @return             a FileReader object that points towards the file name specified in the parameter
      * @throws IOException possible IO error that might happen
      */
     public static FileReader openFile(String filename) throws IOException {
