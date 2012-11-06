@@ -31,16 +31,16 @@ public class WordTrainer {
     public static void main(String[] args) {
         /* Check for argument count */
         if( args.length < 1 ) {
-            System.out.println("Error: Give at least one argument");
+            System.err.println("Error: Give at least one argument");
             System.exit(1);
         }
 
-        System.out.println("File name set: " + args[0]);
+        System.err.println("File name set: " + args[0]);
 
         try( FileReader fr = openFile(args[0]) ) {
 
         } catch( IOException ioe ) {
-            System.out.println("Error happened: " + ioe.getMessage());
+            System.err.println("Error happened: " + ioe.getMessage());
             System.exit(1);
         }
 
