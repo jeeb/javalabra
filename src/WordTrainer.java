@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class WordTrainer {
 
     /**
-     * Prepares a file for opening, and returns a FileReader object for usage.
+     * Creates a new FileReader object, and returns a FileReader object for usage.
      * Requires the caller to deal with the possible IOException.
      *
      * @param  filename    the file name of the file to be opened
@@ -21,8 +21,7 @@ public class WordTrainer {
      * @throws IOException possible IO error that might happen
      */
     public static FileReader openFile(String filename) throws IOException {
-        FileReader fr = new FileReader(filename);
-        return fr;
+        return new FileReader(filename);
     }
 
     /**
@@ -31,15 +30,16 @@ public class WordTrainer {
      */
     public static void main(String[] args) {
         /* Check for argument count */
-        if(args.length < 1) {
-            System.out.println("Give at least one argument");
+        if( args.length < 1 ) {
+            System.out.println("Error: Give at least one argument");
+            System.exit(1);
         }
 
         System.out.println("File name set: " + args[0]);
 
         try( FileReader fr = openFile(args[0]) ) {
 
-        } catch(IOException ioe) {
+        } catch( IOException ioe ) {
             System.out.println("Error happened: " + ioe.getMessage());
             System.exit(1);
         }
