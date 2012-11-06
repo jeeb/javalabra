@@ -12,12 +12,23 @@ import java.util.Scanner;
  */
 public class WordTrainer {
 
+    /**
+     * Prepares a file for opening, and returns a FileReader object for usage.
+     * Requires the caller to deal with the possible IOException.
+     *
+     * @param  filename    the file name of the file to be opened
+     * @return FileReader  a FileReader object that points towards the file name specified in the parameter
+     * @throws IOException possible IO error that might happen
+     */
     public static FileReader openFile(String filename) throws IOException {
         FileReader fr = new FileReader(filename);
         return fr;
     }
 
-    /* Main function for testing purposes */
+    /**
+     * Main function (for testing currently)
+     * @param args command line arguments given
+     */
     public static void main(String[] args) {
         /* Check for argument count */
         if(args.length < 1) {
