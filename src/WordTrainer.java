@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.lang.Integer;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -25,6 +26,7 @@ public class WordTrainer {
         Charset charset = Charset.forName("UTF-8");
 
         String line = null;
+        HashMap<String, String> wordmap = new HashMap<String, String>();
 
         /* Check for argument count */
         if( args.length < 1 ) {
@@ -68,6 +70,32 @@ public class WordTrainer {
 
             /* If we got here, we have the file header read */
 
+            int curline = 2;
+
+            /* Start reading data lines from the word file until EOF */
+            while( (line = reader.readLine()) != null ) {
+                curline++;
+
+                String[] cutparts = line.split("<>", 2);
+
+                if( cutparts.length < 2 ) {
+                    System.err.println("Warning: File has less than two delimited parts on line " + curline + ". " +
+                                       "Ignoring.");
+                    continue;
+                }
+
+                if( cutparts[0].equalsIgnoreCase("") || cutparts[1].equalsIgnoreCase("") ) {
+                    System.err.println("Warning: File has an empty string before or after delimiter on line " +
+                                       curline + ". Ignoring.");
+                    continue;
+                }
+
+                System.err.println(cutparts[0] + " " + cutparts[1]);
+
+                wordmap.put(cutparts[0], cutparts[1]);
+            }
+
+            System.err.println("Count of pairs in wordmap: " + wordmap.size());
 
         } catch( IOException ioe ) {
             /* If le file opening failed, we print an error and exit */
