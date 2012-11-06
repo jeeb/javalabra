@@ -71,10 +71,10 @@ public class WordTrainer {
 
         } catch( IOException ioe ) {
             /* If le file opening failed, we print an error and exit */
-            System.err.println("Error during file I/O: " + ioe);
+            System.err.println("Error during file I/O:\n\t" + ioe);
             System.exit(1);
         } catch( NumberFormatException nfe ) {
-            System.err.println("Error during parsing an integer from a string: " + nfe);
+            System.err.println("Error during parsing an integer from a string:\n\t" + nfe);
             System.exit(1);
         }
 
