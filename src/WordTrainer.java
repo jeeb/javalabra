@@ -70,7 +70,7 @@ public class WordTrainer {
 
             /* If we got here, we have the file header read */
 
-            int curline = 2;
+            int curline = 2; // current line number
 
             /* Start reading data lines from the word file until EOF */
             while( (line = reader.readLine()) != null ) {
@@ -102,6 +102,7 @@ public class WordTrainer {
             System.err.println("Error during file I/O:\n\t" + ioe);
             System.exit(1);
         } catch( NumberFormatException nfe ) {
+            /* If we have a fail with parsing an integer from the file header, we give an error and exit */
             System.err.println("Error during parsing an integer from a string:\n\t" + nfe);
             System.exit(1);
         }
