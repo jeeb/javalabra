@@ -26,7 +26,7 @@ public class WordTrainer {
         Charset charset = Charset.forName("UTF-8");
 
         String line = null;
-        HashMap<String, String> wordmap = new HashMap<String, String>();
+        WordPairContainer wpc = new WordPairContainer();
 
         /* Check for argument count */
         if( args.length < 1 ) {
@@ -76,7 +76,7 @@ public class WordTrainer {
             while( (line = reader.readLine()) != null ) {
                 curline++;
 
-                String[] cutparts = line.split("<>", 2);
+                String[] cutparts = line.split("<>", 3);
 
                 if( cutparts.length < 2 ) {
                     System.err.println("Warning: File has less than two delimited parts on line " + curline + ". " +
@@ -90,12 +90,16 @@ public class WordTrainer {
                     continue;
                 }
 
-                System.err.println(cutparts[0] + " " + cutparts[1]);
-
-                wordmap.put(cutparts[0], cutparts[1]);
+                if( cutparts.length > 2 ) {
+                    System.err.println(cutparts[0] + " " + cutparts[1] + " " + cutparts[2]);
+                    wpc.addWordPair(cutparts[0], cutparts[1], cutparts[2]);
+                } else {
+                    System.err.println(cutparts[0] + " " + cutparts[1]);
+                    wpc.addWordPair(cutparts[0], cutparts[1]);
+                }
             }
 
-            System.err.println("Count of pairs in wordmap: " + wordmap.size());
+            System.err.println("Count of pairs in wordmap: " + wpc.getWordPairCount());
 
         } catch( IOException ioe ) {
             /* If le file opening failed, we print an error and exit */
