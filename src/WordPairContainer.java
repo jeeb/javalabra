@@ -18,6 +18,32 @@ public class WordPairContainer {
         wordpairs = new ArrayList<WordPair>();
     }
 
+    public boolean addWordPair(String word, String pair, String comment) {
+        /* Check if wordpairs is null */
+        if( wordpairs == null ) {
+            System.err.println("Error: Word pair list is null!");
+            return false;
+        }
+
+        WordPair wp = new WordPair(word, pair, comment);
+        wordpairs.add(wp);
+
+        return true;
+    }
+
+    public boolean addWordPair(String word, String pair) {
+        /* Check if wordpairs is null */
+        if( wordpairs == null ) {
+            System.err.println("Error: Word pair list is null!");
+            return false;
+        }
+
+        WordPair wp = new WordPair(word, pair);
+        wordpairs.add(wp);
+
+        return true;
+    }
+
     public boolean addWordPair(WordPair wp) {
         /* Check if wordpairs is null */
         if( wordpairs == null ) {
