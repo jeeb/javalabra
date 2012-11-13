@@ -20,3 +20,7 @@
 * Tehty koodia, tehty sanapareille ja sanaparien listalle luokat
 * Lisätty testit kaikille luokille, testaa kaiken toiminnallisuuden
   luokissa gettereitä lukuun ottamatta.
+* Nyt parseri voi lukea verrattain käytettävällä tavalla sanaparitiedosto-
+  formaattia, sen voisi kuitenkin jakaa toiseen luokkaan, ja pistää paloiksi.
+* Sanaparitiedostojen kirjoituksen voi nyt implementoida.
+
