@@ -29,6 +29,29 @@ public class WordPairContainer {
         return true;
     }
 
+    public boolean removeWordPair(WordPair wp) {
+        /* Check if wordpairs is null */
+        if( wordpairs == null ) {
+            System.err.println("Error: Word pair list is null!");
+            return false;
+        }
+
+        /* Check if wordpairs is empty */
+        if( wordpairs.isEmpty() ) {
+            System.err.println("Error: Word pair list is empty!");
+            return false;
+        }
+
+        /* Check if wordpairs contains given object */
+        if ( !wordpairs.contains(wp) ) {
+            System.err.println("Error: No such object in the word pair!");
+            return false;
+        }
+
+        wordpairs.remove(wp);
+        return true;
+    }
+
     public WordPair getRandomWordPair() {
         /* Check if wordpairs is null */
         if( wordpairs == null ) {
@@ -47,5 +70,30 @@ public class WordPairContainer {
 
         /* Grab the word pair from the array list */
         return wordpairs.get(selection);
+    }
+
+    public WordPair getWordPair(int selection) {
+        /* Check if wordpairs is null */
+        if( wordpairs == null ) {
+            System.err.println("Error: Word pair list is null!");
+            return null;
+        }
+
+        if( selection > (wordpairs.size() - 1) || selection < 0 ) {
+            System.err.println("Error: Number out of range!");
+            return null;
+        }
+
+        return wordpairs.get(selection);
+    }
+
+    public int getWordPairCount() {
+        /* Check if wordpairs is null */
+        if( wordpairs == null ) {
+            System.err.println("Error: Word pair list is null!");
+            return 0;
+        }
+
+        return wordpairs.size();
     }
 }
