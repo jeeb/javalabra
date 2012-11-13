@@ -122,4 +122,14 @@ public class WordPairContainer {
 
         return wordpairs.size();
     }
+
+    public boolean isEmpty() {
+        /* Check if wordpairs is null */
+        if( wordpairs == null ) {
+            System.err.println("Error: Word pair list is null!");
+            return true;
+        }
+
+        return wordpairs.isEmpty();
+    }
 }
