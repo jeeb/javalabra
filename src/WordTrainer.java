@@ -15,7 +15,6 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class WordTrainer {
-
     public static WordPairContainer parseWordPairFile(Path file_path) {
         /* Set a semi-sane character set for input/output */
         Charset charset = Charset.forName("UTF-8");
