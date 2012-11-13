@@ -7,3 +7,16 @@
 - 30.10.2012 [21-22]
 * Tehty tehtävänmäärittely dokumentaatioon (tehtavanmaarittely.txt)
 * Ajatellaan tiedostoformaattien rakenteita
+
+- 06.11.2012 [14-18]
+* Tehty koodia, sanaparitiedostoformaatti enemmän tai vähemmän määritelty
+  <esimerkki, tekstienkoodaukseksi määritellään UTF-8>
+  WORDFILE\n                    (magic string/bytes)
+  1\n                           (tiedostoformaatin versio)
+  Sana<>Sanan Pari<>Kommentti\n (n kpl sanapareja)
+  ...
+
+- 13.11.2012 [16-21]
+* Tehty koodia, tehty sanapareille ja sanaparien listalle luokat
+* Lisätty testit kaikille luokille, testaa kaiken toiminnallisuuden
+  luokissa gettereitä lukuun ottamatta.
