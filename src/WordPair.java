@@ -17,8 +17,9 @@ public class WordPair {
     }
 
     public WordPair(String word, String pair) {
-        this.word = word;
-        this.pair = pair;
+        this.word    = word;
+        this.pair    = pair;
+        this.comment = "";
     }
 
     public String getWord() {
