@@ -18,7 +18,7 @@ public class FileReader {
      * BufferedReader object for further reading of the file.
      *
      * Returns null if something failed.
-     * @param file_path_string
+     * @param file_path_string a String that will be used as the path
      * @return A BufferedReader object if successful, otherwise returns null.
      */
     public static BufferedReader openFile(String file_path_string) {
@@ -41,7 +41,7 @@ public class FileReader {
      * Takes in a BufferedReader object that is then used for reading the file and creating a WordPairContainer,
      * that is then returned. If it fails, the function returns null.
      *
-     * @param reader
+     * @param reader a BufferedReader object that will be read in the function
      * @return A WordPairContainer object if successful and the file contains entries, otherwise returns null.
      * @throws IOException
      */
