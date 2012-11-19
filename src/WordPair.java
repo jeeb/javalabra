@@ -56,4 +56,32 @@ public class WordPair {
     public String getComment() {
         return comment;
     }
+
+    /**
+     * Compares this WordPair against the specified object. The result is true if the object is not null
+     * and if it represents a WordPair with the same contents.
+     *
+     * @param obj The object to compare this WordPair against
+     * @return true if the given object represents a WordPair with the exactly same contents,
+     *         false otherwise.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        /* General checks */
+        if( obj == null || obj.getClass() != getClass() ) {
+            return false;
+        }
+
+        /* Cast the object into the needed type */
+        final WordPair compared = (WordPair) obj;
+
+        if( this.getComment().equals(compared.getComment()) &&
+            this.getWord().equals(compared.getWord()) &&
+            this.getPair().equals(compared.getPair())) {
+
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
