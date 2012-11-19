@@ -20,7 +20,7 @@ public class FileReader {
      * @param file_path a Path object that will be used for opening of the BufferedReader
      * @return A BufferedReader object if successful, otherwise returns null.
      */
-    public static BufferedReader createBReader(Path file_path) {
+    private static BufferedReader createBReader(Path file_path) {
         /* Set a semi-sane character set for reading the file */
         Charset charset = Charset.forName("UTF-8");
 
@@ -44,7 +44,7 @@ public class FileReader {
      * @return A WordPairContainer object if successful and the file contains entries, otherwise returns null.
      * @throws IOException
      */
-    public static WordPairContainer parseBReaderToWPC(BufferedReader reader) throws IOException {
+    private static WordPairContainer parseBReaderToWPC(BufferedReader reader) throws IOException {
         String            line = null;
         WordPairContainer wpc  = new WordPairContainer();
 
