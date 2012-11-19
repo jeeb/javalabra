@@ -132,4 +132,47 @@ public class WordPairContainer {
 
         return wordpairs.isEmpty();
     }
+
+    /**
+     * Compares this WordPairContainer against the specified object. The result is true if the object is not null
+     * and if it represents a WordPairContainer with the same contents.
+     *
+     * @param obj The object to compare this WordPairContainer against
+     * @return true if the given object represents a WordPairContainer with the exactly same contents,
+     *         false otherwise.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        /* General checks */
+        if( obj == null || obj.getClass() != getClass() ) {
+            return false;
+        }
+
+        /* Cast the object into the needed type */
+        final WordPairContainer compared = (WordPairContainer) obj;
+
+        /* Check if both are empty */
+        if( this.isEmpty() && compared.isEmpty() ) {
+            return true;
+        }
+
+        /* Check if their emptiness status does not match */
+        if( ( compared.isEmpty() && !this.isEmpty() ) || ( !compared.isEmpty() && this.isEmpty() ) ) {
+            return false;
+        }
+
+        /* Check if their count of word pairs does not match */
+        if( this.getWordPairCount() != compared.getWordPairCount() ) {
+            return false;
+        }
+
+        /* Since their count of word pairs matches, just iterate through them all and compare word pairs */
+        for( int i = 0; i < this.getWordPairCount(); i++ ) {
+            if( !this.getWordPair(i).equals(compared.getWordPair(i)) ) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
