@@ -14,7 +14,7 @@ public class WordTrainerTest {
     public void testFileParsingWithValidFile() {
         String filename = "derp";
         /* currently does not fail like a boss */
-        WordPairContainer wpc = WordTrainer.parseWordPairFile(Paths.get(filename));
+        WordPairContainer wpc = FileReader.createWPCFromFile(filename);
 
         Assert.assertNotNull(wpc);
 
