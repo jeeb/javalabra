@@ -11,7 +11,8 @@ public class WordTrainer {
      * @param args command line arguments given
      */
     public static void main(String[] args) {
-        WordPairContainer wpc = null;
+        WordPairContainer wpc  = null;
+        WordPairContainer wpc2 = null;
 
         /* Check for argument count */
         if( args.length < 1 ) {
@@ -36,6 +37,15 @@ public class WordTrainer {
          */
         FileWriter.WriteWordPairContainerToFile(wpc, "herp");
 
+        /* Try to parse the written file and create another container */
+        wpc2 = FileReader.createWPCFromFile("herp");
+
+        /* Let's check if they match! */
+        if( wpc2 != null && wpc.equals(wpc2) ) {
+            System.err.println("We are victorious!");
+        }
+
+        /* Exit normally */
         System.exit(0);
     }
 }
