@@ -20,9 +20,6 @@ public class WordTrainer {
      * @param args command line arguments given
      */
     public static void main(String[] args) {
-        /* Set a semi-sane character set for input/output */
-        Charset charset = Charset.forName("UTF-8");
-
         WordPairContainer wpc = null;
 
         /* Check for argument count */
@@ -41,6 +38,12 @@ public class WordTrainer {
             System.err.println("Error state happened, exiting program");
             System.exit(1);
         }
+
+        /*
+         * Write the container's contents into a file called "herp" for debugging purposes.
+         * Does not work if the file exists already.
+         */
+        FileWriter.WriteWordPairContainerToFile(wpc, "herp");
 
         System.exit(0);
     }
