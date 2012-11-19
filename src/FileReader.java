@@ -38,11 +38,13 @@ public class FileReader {
      * that is then returned.
      *
      * Returns null if something fails, or if the file contains no entries.
+     *
+     * Can throw an IOException if the file reading goes awry, this must be handled on caller's side.
      * @param reader a BufferedReader object that will be read in the function
      * @return A WordPairContainer object if successful and the file contains entries, otherwise returns null.
      * @throws IOException
      */
-    public static WordPairContainer parseFileToWPC(BufferedReader reader) throws IOException {
+    public static WordPairContainer parseBReaderToWPC(BufferedReader reader) throws IOException {
         String            line = null;
         WordPairContainer wpc  = new WordPairContainer();
 
@@ -114,9 +116,9 @@ public class FileReader {
     }
 
     /**
-     * Takes in a String that is then used to construct a
-     * @param file_path_string
-     * @return
+     * Takes in a String that is then used as a Path to have a file parsed as a Word Pair file.
+     * @param file_path_string a String that is supposed to be a path towards a file that can be read
+     * @return A WordPairContainer object if successful, otherwise returns null.
      */
     public static WordPairContainer createWPCFromFile(String file_path_string) {
         Path              file_path = null;
@@ -142,7 +144,7 @@ public class FileReader {
 
         /* Try parsing the file for which we got a BufferedReader into a WordPairContainer */
         try {
-            return parseFileToWPC(br);
+            return parseBReaderToWPC(br);
         } catch (IOException ioe) {
             /* If we got an exception, we have a fail */
             System.err.println("I/O Error during file parsing:\n\t" + ioe);
