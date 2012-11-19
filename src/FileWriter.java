@@ -13,6 +13,12 @@ import java.nio.file.Paths;
  * To change this template use File | Settings | File Templates.
  */
 public class FileWriter {
+
+    /**
+     *
+     * @param file_path
+     * @return
+     */
     private static BufferedWriter createBWriter(Path file_path) {
         /* Set a semi-sane character set for writing the file */
         Charset charset = Charset.forName("UTF-8");
@@ -26,6 +32,12 @@ public class FileWriter {
         }
     }
 
+    /**
+     *
+     * @param bw
+     * @param string_to_be_written
+     * @return
+     */
     private static boolean writeFinalStringToFile(BufferedWriter bw, String string_to_be_written) {
         /* Try writing */
         try {
@@ -41,6 +53,12 @@ public class FileWriter {
         return true;
     }
 
+    /**
+     *
+     * @param wp
+     * @param sb
+     * @return
+     */
     private static boolean stringifyWordPair(WordPair wp, StringBuilder sb) {
         if( wp == null ) {
             System.err.println("Error: WP given was null!");
@@ -57,6 +75,11 @@ public class FileWriter {
         return true;
     }
 
+    /**
+     *
+     * @param wpc
+     * @return
+     */
     private static String stringifyWordPairContainer(WordPairContainer wpc) {
         /* Initialize variables */
         WordPair wp              = null;
@@ -97,6 +120,12 @@ public class FileWriter {
         return sb.toString();
     }
 
+    /**
+     *
+     * @param wpc
+     * @param file_path_string
+     * @return
+     */
     public static boolean WriteWordPairContainerToFile(WordPairContainer wpc, String file_path_string) {
         /* Initialize the variables */
         Path           file_path = null;
