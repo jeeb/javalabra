@@ -30,6 +30,7 @@ public class FileWriter {
         /* Try writing */
         try {
             bw.write(string_to_be_written, 0, string_to_be_written.length());
+            bw.close();
         } catch (IOException ioe) {
             /* If le file writing failed, we print an error and return null */
             System.err.println("Error during writing the string to the file:\n\t" + ioe);
