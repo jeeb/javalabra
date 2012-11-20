@@ -6,11 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Created with IntelliJ IDEA.
- * User: jeekstro
- * Date: 19.11.2012
- * Time: 15:09
- * To change this template use File | Settings | File Templates.
+ * Implements the file reading and the parsing of data that then is used to create a WordPairContainer.
  */
 public class FileReader {
     /**

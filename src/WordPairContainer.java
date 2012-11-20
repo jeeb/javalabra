@@ -2,11 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Created with IntelliJ IDEA.
- * User: jeekstro
- * Date: 13.11.2012
- * Time: 17:04
- * To change this template use File | Settings | File Templates.
+ * Allows for easier handling of a collection (ArrayList) of WordPair objects via relatively usable interfaces.
  */
 public class WordPairContainer {
     /* ArrayList full of WordPairs */

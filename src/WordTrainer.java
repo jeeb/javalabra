@@ -1,9 +1,7 @@
 /**
- * Created with IntelliJ IDEA.
- * User: jeekstro
- * Date: 29.10.2012
- * Time: 15:18
- * To change this template use File | Settings | File Templates.
+ * Main WordTrainer application class.
+ *
+ * Implements the main() of the application as well as most close related things.
  */
 public class WordTrainer {
     /**

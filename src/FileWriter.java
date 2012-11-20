@@ -6,11 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Created with IntelliJ IDEA.
- * User: jeekstro
- * Date: 19.11.2012
- * Time: 16:42
- * To change this template use File | Settings | File Templates.
+ * Implements the stringification and file writing features needed to write WordPairContainer objects onto a Path.
  */
 public class FileWriter {
 

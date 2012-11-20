@@ -1,9 +1,5 @@
 /**
- * Created with IntelliJ IDEA.
- * User: jeekstro
- * Date: 13.11.2012
- * Time: 16:55
- * To change this template use File | Settings | File Templates.
+ * Works as the "struct" data structure holding the word pairs' strings and helper functions.
  */
 public class WordPair {
     private String word;
