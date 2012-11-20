@@ -24,3 +24,17 @@
   formaattia, sen voisi kuitenkin jakaa toiseen luokkaan, ja pistää paloiksi.
 * Sanaparitiedostojen kirjoituksen voi nyt implementoida.
 
+- 19.11.2012 [12-21]
+* Implementoitu FileWriter ja FileReader-luokat, joilla voidaan lukea
+  tiedostoja WordPairContainereiksi, sekä kirjoittaa WordPairContainer-
+  olioita aiemmin spesifioituun tiedostoformaattiin.
+* Implementoitu WordPair- sekä WordPairContainer -luokille equals() -metodit,
+  joilla voídaan tarkistaa, jos kaksi eri oliota omaavat saman sisällön
+
+- 20.11.2012 [13-19]
+* Uudelleennimetty overridettu equals() -metodi sillä se rikkoo ArrayList-
+  olioiden remove -metodin, joka käyttää implementaatiossaan equals() -metodia.
+  Uusi nimi on equalsInContent(), joka on sopivampi nimitys metodille.
+* Lisätty validisuustarkistuksia
+* Työskennelty testien kanssa
+* Lisätty testejä
