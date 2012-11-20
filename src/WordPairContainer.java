@@ -193,7 +193,7 @@ public class WordPairContainer {
         /* Since their count of word pairs matches, just iterate through them all and compare word pairs */
         for( int i = 0; i < this.getWordPairCount(); i++ ) {
             /* Return false if the contained word pairs don't match */
-            if( !this.getWordPair(i).equals(compared.getWordPair(i)) ) {
+            if( !this.getWordPair(i).isContentSame(compared.getWordPair(i)) ) {
                 return false;
             }
         }

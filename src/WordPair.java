@@ -65,8 +65,7 @@ public class WordPair {
      * @return true if the given object represents a WordPair with the exactly same contents,
      *         false otherwise.
      */
-    @Override
-    public boolean equals(Object obj) {
+    public boolean isContentSame(Object obj) {
         /* General checks */
         if( obj == null || obj.getClass() != getClass() ) {
             return false;
@@ -83,5 +82,12 @@ public class WordPair {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Word: "    + this.getWord()    + "\n" +
+               "Pair: "    + this.getPair()    + "\n" +
+               "Comment: " + this.getComment() + "\n";
     }
 }
