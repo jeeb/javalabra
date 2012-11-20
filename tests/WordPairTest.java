@@ -2,11 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Created with IntelliJ IDEA.
- * User: jeekstro
- * Date: 13.11.2012
- * Time: 18:52
- * To change this template use File | Settings | File Templates.
+ * Implements the tests for WordPair objects
  */
 public class WordPairTest {
     @Test

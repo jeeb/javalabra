@@ -3,11 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created with IntelliJ IDEA.
- * User: jeekstro
- * Date: 20.11.2012
- * Time: 16:33
- * To change this template use File | Settings | File Templates.
+ * Implements the tests for the testing of already prefilled WordPairContainers.
  */
 public class PrefilledWordPairContainerTest {
     private WordPairContainer wpc;
