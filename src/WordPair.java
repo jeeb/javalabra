@@ -65,7 +65,7 @@ public class WordPair {
      * @return true if the given object represents a WordPair with the exactly same contents,
      *         false otherwise.
      */
-    public boolean isContentSame(Object obj) {
+    public boolean equalsInContent(Object obj) {
         /* General checks */
         if( obj == null || obj.getClass() != getClass() ) {
             return false;

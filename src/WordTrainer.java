@@ -41,7 +41,7 @@ public class WordTrainer {
         wpc2 = FileReader.createWPCFromFile("herp");
 
         /* Let's check if they match! */
-        if( wpc2 != null && wpc.equals(wpc2) ) {
+        if( wpc2 != null && wpc.equalsInContent(wpc2) ) {
             System.err.println("We are victorious!");
         }
 
