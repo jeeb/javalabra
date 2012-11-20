@@ -76,9 +76,12 @@ public class FileWriter {
     }
 
     /**
+     * Creates a String from the given WordPairContainer, that then can be written into a file with the
+     * writeFinalStringToFile function.
      *
-     * @param wpc
-     * @return
+     * If successful, returns a String object. Otherwise returns null.
+     * @param wpc The WordPairContainer to be Stringified
+     * @return a String object if successful, null if an error happened
      */
     private static String stringifyWordPairContainer(WordPairContainer wpc) {
         /* Initialize variables */
@@ -121,10 +124,13 @@ public class FileWriter {
     }
 
     /**
+     * Tries to write the contents of the given WordPairContainer into a file specified by a String that is then
+     * parsed as a Path.
      *
-     * @param wpc
-     * @param file_path_string
-     * @return
+     * Returns true if successful, false otherwise.
+     * @param wpc The WordPairContainer to be written
+     * @param file_path_string The String containing the path to the file to be written to
+     * @return true if successful, false otherwise
      */
     public static boolean WriteWordPairContainerToFile(WordPairContainer wpc, String file_path_string) {
         /* Initialize the variables */
