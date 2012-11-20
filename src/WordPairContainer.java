@@ -68,7 +68,7 @@ public class WordPairContainer {
         return true;
     }
 
-    public boolean addWordPair(WordPair wp) {
+    private boolean addWordPair(WordPair wp) {
         /* Check if wordpairs is null */
         if( wordpairs == null ) {
             System.err.println("Error: Word pair list is null!");
