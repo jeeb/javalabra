@@ -25,6 +25,18 @@ public class WordPairContainer {
             return false;
         }
 
+        /* Check if we are given nulls, those bastards :< */
+        if( word == null || pair == null || comment == null ) {
+            System.err.println("Error: Some of the given variable(s) was/were null!");
+            return false;
+        }
+
+        /* Check if the essential strings given were empty */
+        if( word.equalsIgnoreCase("") || pair.equalsIgnoreCase("") ) {
+            System.err.println("Error: Either the word or pair was an empty string!");
+            return false;
+        }
+
         WordPair wp = new WordPair(word, pair, comment);
         wordpairs.add(wp);
 
@@ -35,6 +47,18 @@ public class WordPairContainer {
         /* Check if wordpairs is null */
         if( wordpairs == null ) {
             System.err.println("Error: Word pair list is null!");
+            return false;
+        }
+
+        /* Check if we are given nulls, those bastards :< */
+        if( word == null || pair == null ) {
+            System.err.println("Error: Given word or pair is null!");
+            return false;
+        }
+
+        /* Check if the essential strings given were empty */
+        if( word.equalsIgnoreCase("") || pair.equalsIgnoreCase("") ) {
+            System.err.println("Error: Either the word or pair was an empty string!");
             return false;
         }
 
