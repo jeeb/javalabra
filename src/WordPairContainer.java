@@ -81,8 +81,8 @@ public class WordPairContainer {
 
     public boolean removeWordPair(WordPair wp) {
         /* Check if wordpairs is null */
-        if( wordpairs == null ) {
-            System.err.println("Error: Word pair list is null!");
+        if( wordpairs == null || wp == null ) {
+            System.err.println("Error: Word pair list is null or given word pair was null!");
             return false;
         }
 
