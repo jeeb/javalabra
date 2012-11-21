@@ -39,4 +39,20 @@ public class EmptyWordPairContainerTest {
 
         Assert.assertTrue( wpc.addWordPair(herp, derp) );
     }
+
+    @Test
+    public void testAddingATwoStringPairWithNullWord() {
+        String herp = null;
+        String derp = "derp";
+
+        Assert.assertFalse( wpc.addWordPair(herp, derp) );
+    }
+
+    @Test
+    public void testAddingATwoStringPairWithNullPair() {
+        String herp = "herp";
+        String derp = null;
+
+        Assert.assertFalse( wpc.addWordPair(herp, derp) );
+    }
 }
