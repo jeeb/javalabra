@@ -156,14 +156,9 @@ public class WordPair {
             return false;
         }
 
-        if( this.getComment().equals(obj.getComment()) &&
-            this.getWord().equals(obj.getWord()) &&
-            this.getPair().equals(obj.getPair()) ) {
-
-            return true;
-        } else {
-            return false;
-        }
+        return ( this.getComment().equals(obj.getComment()) &&
+                 this.getWord().equals(obj.getWord()) &&
+                 this.getPair().equals(obj.getPair()) );
     }
 
     @Override
