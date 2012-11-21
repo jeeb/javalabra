@@ -23,7 +23,7 @@ public class WordPairContainer {
 
         /* Check if we are given nulls, those bastards :< */
         if( word == null || pair == null || comment == null ) {
-            System.err.println("Error: Some of the given variable(s) was/were null!");
+            System.err.println("Error: Some of the given Strings are null!");
             return false;
         }
 
@@ -40,40 +40,13 @@ public class WordPairContainer {
     }
 
     public boolean addWordPair(String word, String pair) {
-        /* Check if wordpairs is null */
-        if( wordpairs == null ) {
-            System.err.println("Error: Word pair list is null!");
-            return false;
-        }
-
-        /* Check if we are given nulls, those bastards :< */
-        if( word == null || pair == null ) {
-            System.err.println("Error: Given word or pair is null!");
-            return false;
-        }
-
-        /* Check if the essential strings given were empty */
-        if( word.equalsIgnoreCase("") || pair.equalsIgnoreCase("") ) {
-            System.err.println("Error: Either the word or pair was an empty string!");
-            return false;
-        }
-
-        WordPair wp = WordPair.createWordPair(word, pair);
-
-        if( wp == null ) {
-            System.err.println("Error: Creation of object failed for some reason.");
-            return false;
-        }
-
-        wordpairs.add(wp);
-
-        return true;
+        return this.addWordPair(word, pair, "");
     }
 
     private boolean addWordPair(WordPair wp) {
         /* Check if wordpairs is null */
-        if( wordpairs == null ) {
-            System.err.println("Error: Word pair list is null!");
+        if( wordpairs == null || wp == null ) {
+            System.err.println("Error: Word pair list or given word pair was null!");
             return false;
         }
 
