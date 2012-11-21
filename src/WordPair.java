@@ -121,7 +121,7 @@ public class WordPair {
         return true;
     }
 
-    public boolean setAll(String word, String pair, String comment) {
+    public boolean setContents(String word, String pair, String comment) {
         if( word == null || pair == null || comment == null ) {
             System.err.println("Error: A variable given was null!");
             return false;
