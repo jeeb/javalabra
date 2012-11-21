@@ -127,15 +127,19 @@ public class WordPair {
             return false;
         }
 
-        if( WordPair.createWordPair(word, pair, comment) == null ) {
-            System.err.println("Error: Emulation of the addition by creation failed!");
+        String backup_word    = this.word;
+        String backup_pair    = this.pair;
+        String backup_comment = this.comment;
+
+        if( this.setWord(word) && this.setPair(pair) && this.setComment(comment) ) {
+            return true;
+        } else {
+            this.word    = backup_word;
+            this.pair    = backup_pair;
+            this.comment = backup_comment;
+
+            return false;
         }
-
-        this.setWord(word);
-        this.setPair(pair);
-        this.setComment(comment);
-
-        return true;
     }
 
     /**
