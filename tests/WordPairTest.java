@@ -13,7 +13,7 @@ public class WordPairTest {
         String comment = "comment";
 
         /* Create new wordpair */
-        WordPair wp = new WordPair(herp, derp, comment);
+        WordPair wp = WordPair.createWordPair(herp, derp, comment);
 
         /* Assert that the thing is not null */
         Assert.assertNotNull(wp);
@@ -30,7 +30,7 @@ public class WordPairTest {
         String derp = "derp";
 
         /* Create new wordpair */
-        WordPair wp = new WordPair(herp, derp);
+        WordPair wp = WordPair.createWordPair(herp, derp);
 
         /* Assert that the thing is not null */
         Assert.assertNotNull(wp);

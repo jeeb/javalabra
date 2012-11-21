@@ -33,7 +33,7 @@ public class WordPairContainer {
             return false;
         }
 
-        WordPair wp = new WordPair(word, pair, comment);
+        WordPair wp = WordPair.createWordPair(word, pair, comment);
         wordpairs.add(wp);
 
         return true;
@@ -58,7 +58,13 @@ public class WordPairContainer {
             return false;
         }
 
-        WordPair wp = new WordPair(word, pair);
+        WordPair wp = WordPair.createWordPair(word, pair);
+
+        if( wp == null ) {
+            System.err.println("Error: Creation of object failed for some reason.");
+            return false;
+        }
+
         wordpairs.add(wp);
 
         return true;
