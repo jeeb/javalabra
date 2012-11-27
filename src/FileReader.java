@@ -95,10 +95,8 @@ public class FileReader {
             }
 
             if( cutparts.length > 2 ) {
-                System.err.println(cutparts[0] + " " + cutparts[1] + " " + cutparts[2]);
                 wpc.addWordPair(cutparts[0], cutparts[1], cutparts[2]);
             } else {
-                System.err.println(cutparts[0] + " " + cutparts[1]);
                 wpc.addWordPair(cutparts[0], cutparts[1]);
             }
         }
