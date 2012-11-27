@@ -46,3 +46,4 @@
 * Lisätty SettingsManager -luokka asetusten hallinnoimiseen
 * Lisätty CLIArgumentsParser -luokka komentoriviargumenttien parsintaan
 * Poistettu debug -printtausta
+* Lisätty testit Settings Managerille että komentoriviargumenttiparserille
