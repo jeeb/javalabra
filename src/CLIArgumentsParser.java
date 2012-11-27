@@ -8,7 +8,7 @@ public class CLIArgumentsParser {
      * Parses the command line arguments given, and writes what they set into the provided SettingsManager object.
      *
      * TODO: !Split into multiple functions!
-     * @param args An Arrray of String objects containing the command line arguments to be parsed.
+     * @param args An Array of String objects containing the command line arguments to be parsed.
      * @param sm   A SettingsManager object to which the parsed settings will be written.
      */
     public static void parseArguments(String[] args, SettingsManager sm) {
