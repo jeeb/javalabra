@@ -15,16 +15,9 @@ public class WordTrainer {
         /* Set default settings */
         SettingsManager sm = new SettingsManager();
 
-        /* Check for argument count */
-        if( args.length < 1 ) {
-            System.err.println("Error: Give at least one argument");
-            System.exit(1);
-        }
+        CLIArgumentsParser.parseArguments(args, sm);
 
-        /* Print the file name used for debug purposes, and create the path */
-        System.err.println("File name set: " + args[0]);
-
-        wpc = FileReader.createWPCFromFile(args[0]);
+        wpc = FileReader.createWPCFromFile(sm.getFileString());
 
         /* Error state happened and null was returned */
         if( wpc == null ) {
