@@ -11,14 +11,14 @@ public class CLIArgumentsParser {
      * @param args An Array of String objects containing the command line arguments to be parsed.
      * @param sm   A SettingsManager object to which the parsed settings will be written.
      */
-    public static void parseArguments(String[] args, SettingsManager sm) {
+    public static boolean parseArguments(String[] args, SettingsManager sm) {
         if( args == null || sm == null ) {
             System.err.println("Warning: arguments or settings manager was null!");
-            return;
+            return false;
         }
 
         if( args.length == 0 ) {
-            return;
+            return true;
         }
 
         for( int i = 0; i < args.length; i++ ) {
@@ -62,6 +62,6 @@ public class CLIArgumentsParser {
             }
         }
 
-        return;
+        return true;
     }
 }
