@@ -7,10 +7,10 @@ public class WordPair {
     private String comment;
 
     /**
-     *
-     * @param word
-     * @param pair
-     * @param comment
+     * Instantiates a WordPair object with the given values.
+     * @param word    The String to be used as the shown word in the word pair.
+     * @param pair    The String to be used as the "answer" pair of the shown word.
+     * @param comment The String to be used as the comment. Is not essential, and can be passed as an empty String.
      */
     private WordPair(String word, String pair, String comment) {
         this.word    = word;
@@ -55,29 +55,34 @@ public class WordPair {
     }
 
     /**
-     *
-     * @return
+     * Gets the currently set word from a given WordPair.
+     * @return A String object that contains the currently set word.
      */
     public String getWord() {
         return word;
     }
 
     /**
-     *
-     * @return
+     * Gets the currently set pair word from a given WordPair.
+     * @return A String object that contains the currently set pair word.
      */
     public String getPair() {
         return pair;
     }
 
     /**
-     *
-     * @return
+     * Gets the currently set comment from a given WordPair.
+     * @return A String object that contains the currently set comment.
      */
     public String getComment() {
         return comment;
     }
 
+    /**
+     * Takes in a String object, that is then used to set the word for a given WordPair.
+     * @param word a String object that will be used to set the word
+     * @return true if successful, otherwise returns false.
+     */
     public boolean setWord(String word) {
         if( word == null ) {
             System.err.println("Error: Given word is null!");
@@ -94,6 +99,11 @@ public class WordPair {
         return true;
     }
 
+    /**
+     * Takes in a String object, that is then used to set the pair word for a given WordPair.
+     * @param pair a String object that will be used to set the pair word
+     * @return true if successful, otherwise returns false.
+     */
     public boolean setPair(String pair) {
         if( pair == null ) {
             System.err.println("Error: Given pair is null!");
@@ -110,6 +120,11 @@ public class WordPair {
         return true;
     }
 
+    /**
+     * Takes in a String object, that is then used to set the comment for a given WordPair.
+     * @param comment a String object that will be used to set the comment
+     * @return true if successful, otherwise returns false.
+     */
     public boolean setComment(String comment) {
         if( comment == null ) {
             System.err.println("Error: Given comment is null!");
@@ -121,6 +136,15 @@ public class WordPair {
         return true;
     }
 
+    /**
+     * Takes in three String objects, that will then be used to change the contents of a given WordPair at once.
+     *
+     * Tries to leave the WordPair unchanged in case of some value failing to be set.
+     * @param word    a String object that will be used to set the word
+     * @param pair    a String object that will be used to set the pair word
+     * @param comment a String object that will be used to set the comment
+     * @return true if successful, otherwise returns false.
+     */
     public boolean setContents(String word, String pair, String comment) {
         if( word == null || pair == null || comment == null ) {
             System.err.println("Error: A variable given was null!");
@@ -161,6 +185,10 @@ public class WordPair {
                  this.getPair().equals(obj.getPair()) );
     }
 
+    /**
+     * Returns a "prettified" String representation of the WordPair object's contents.
+     * @return A String object that represents the contents of a WordPair.
+     */
     @Override
     public String toString() {
         return "Word: "    + this.getWord()    + "\n" +
