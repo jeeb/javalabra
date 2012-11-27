@@ -16,7 +16,7 @@ public class SettingsManager {
     public SettingsManager() {
         /* Set defaults */
         game_mode   =  Mode.GAME;
-        file_string = "herp";
+        file_string = "derp";
     }
 
     /**
