@@ -130,11 +130,12 @@ public class FileWriter {
      */
     public static boolean WriteWordPairContainerToFile(WordPairContainer wpc, String file_path_string) {
         /* Initialize the variables */
-        Path           file_path = null;
-        BufferedWriter bw        = null;
+        Path           file_path       = null;
+        BufferedWriter bw              = null;
+        String         string_to_write = null;
 
-        if( wpc == null ) {
-            System.err.println("Error: The WPC given to writer was null!");
+        if( wpc == null || file_path_string == null ) {
+            System.err.println("Error: The WPC or string given to writer was null!");
             return false;
         }
 
@@ -152,6 +153,13 @@ public class FileWriter {
             return false;
         }
 
-        return writeFinalStringToFile(bw, stringifyWordPairContainer(wpc));
+        string_to_write = stringifyWordPairContainer(wpc);
+
+        if( string_to_write == null ) {
+            System.err.println("Error: Creating the string failed!");
+            return false;
+        }
+
+        return writeFinalStringToFile(bw, string_to_write);
     }
 }
