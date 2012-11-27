@@ -38,3 +38,11 @@
 * Lisätty validisuustarkistuksia
 * Työskennelty testien kanssa
 * Lisätty testejä
+
+- 27.11.2012 [18-22]
+* Uudelleennimetty kirjoitusfunktio
+* Korjattu tiedostonkirjoitus- ja lukufunktioista corner case -bugeja
+* Lisätty testejä corner case -bugeille
+* Lisätty SettingsManager -luokka asetusten hallinnoimiseen
+* Lisätty CLIArgumentsParser -luokka komentoriviargumenttien parsintaan
+* Poistettu debug -printtausta
