@@ -12,6 +12,9 @@ public class WordTrainer {
         WordPairContainer wpc  = null;
         WordPairContainer wpc2 = null;
 
+        /* Set default settings */
+        SettingsManager sm = new SettingsManager();
+
         /* Check for argument count */
         if( args.length < 1 ) {
             System.err.println("Error: Give at least one argument");
@@ -33,7 +36,7 @@ public class WordTrainer {
          * Write the container's contents into a file called "herp" for debugging purposes.
          * Does not work if the file exists already.
          */
-        FileWriter.WriteWordPairContainerToFile(wpc, "herp");
+        FileWriter.writeWordPairContainerToFile(wpc, "herp");
 
         /* Try to parse the written file and create another container */
         wpc2 = FileReader.createWPCFromFile("herp");

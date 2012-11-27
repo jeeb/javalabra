@@ -128,7 +128,7 @@ public class FileWriter {
      * @param file_path_string The String containing the path to the file to be written to
      * @return true if successful, false otherwise
      */
-    public static boolean WriteWordPairContainerToFile(WordPairContainer wpc, String file_path_string) {
+    public static boolean writeWordPairContainerToFile(WordPairContainer wpc, String file_path_string) {
         /* Initialize the variables */
         Path           file_path       = null;
         BufferedWriter bw              = null;

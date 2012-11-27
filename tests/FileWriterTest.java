@@ -24,11 +24,11 @@ public class FileWriterTest {
 
     @Test
     public void testWritingAnEmptyWPC() {
-        Assert.assertFalse( FileWriter.WriteWordPairContainerToFile(wpc, testString) );
+        Assert.assertFalse( FileWriter.writeWordPairContainerToFile(wpc, testString) );
     }
 
     @Test
     public void testWritingANullFileName() {
-        Assert.assertFalse( FileWriter.WriteWordPairContainerToFile(wpc2, null) );
+        Assert.assertFalse( FileWriter.writeWordPairContainerToFile(wpc2, null) );
     }
 }
