@@ -11,9 +11,9 @@ import java.nio.file.Paths;
 public class FileWriter {
 
     /**
-     *
-     * @param file_path
-     * @return
+     * Creates A BufferedWriter object with the given Path object, using the UTF-8 character set.
+     * @param file_path The Path given to create the BufferedWriter against
+     * @return A BufferedWriter object if successful, null otherwise.
      */
     private static BufferedWriter createBWriter(Path file_path) {
         /* Set a semi-sane character set for writing the file */
@@ -29,10 +29,10 @@ public class FileWriter {
     }
 
     /**
-     *
-     * @param bw
-     * @param string_to_be_written
-     * @return
+     * Writes the given String object to the given BufferedWriter object.
+     * @param bw The BufferedWriter object that is to be used when writing the string.
+     * @param string_to_be_written The String object that is to be written to the BufferedWriter object.
+     * @return true if successful, false otherwise.
      */
     private static boolean writeFinalStringToFile(BufferedWriter bw, String string_to_be_written) {
         /* Try writing */
@@ -50,10 +50,10 @@ public class FileWriter {
     }
 
     /**
-     *
-     * @param wp
-     * @param sb
-     * @return
+     * Stringifies the given WordPair into the given StringBuilder accordingly to the WordPair file specification.
+     * @param wp The WordPair object that is to be used as the source of data.
+     * @param sb The StringBuilder object into which the data shall be added.
+     * @return true if successful, false otherwise.
      */
     private static boolean stringifyWordPair(WordPair wp, StringBuilder sb) {
         if( wp == null ) {
