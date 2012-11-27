@@ -120,6 +120,11 @@ public class FileReader {
         Path              file_path = null;
         BufferedReader    br        = null;
 
+        if( file_path_string == null ) {
+            System.err.println("Error: a null file path string given to reader!");
+            return null;
+        }
+
         /* Try to read the passed string as a file path */
         file_path = Paths.get(file_path_string);
 
