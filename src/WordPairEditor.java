@@ -11,7 +11,7 @@ public class WordPairEditor {
             return;
         }
 
-        int i = 0;
+        int i = 1;
 
         System.err.println(":::::::::::: LIST :::::::::::::");
 
@@ -81,11 +81,7 @@ public class WordPairEditor {
             return false;
         }
 
-        if( read_comment.equalsIgnoreCase("") ) {
-            return wpc.addWordPair(read_word, read_pair);
-        } else {
-            return wpc.addWordPair(read_word, read_pair, read_comment);
-        }
+        return wpc.addWordPair(read_word, read_pair, read_comment);
     }
 
     private static boolean readOption(WordPairContainer wpc) {
@@ -93,12 +89,11 @@ public class WordPairEditor {
             return false;
         }
 
-        boolean retval;
         String what_we_read = null;
         System.err.print("Input? "); // remember to remove the \n
 
         if( reader.hasNext() ) {
-            what_we_read = reader.nextLine();
+            what_we_read = reader.next();
         }
 
         if( what_we_read == null ) {
@@ -112,7 +107,7 @@ public class WordPairEditor {
             // editing mode
         } else if( what_we_read.equalsIgnoreCase("r") && !wpc.isEmpty() ) {
             // removal mode
-        } else if( what_we_read.equalsIgnoreCase("") ) {
+        } else {
             return false;
         }
 
@@ -149,7 +144,8 @@ public class WordPairEditor {
         do {
             printWPC(wpc);
             printOptions(wpc);
-            if ( !readOption(wpc) ) {
+
+            if( !readOption(wpc) ) {
                 we_are_running = false;
             }
             // give user the choice of either editing, creating or removing
