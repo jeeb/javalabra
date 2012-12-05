@@ -17,6 +17,8 @@ public class WordTrainer {
 
         CLIArgumentsParser.parseArguments(args, sm);
 
+        wpc = WordPairEditor.runEditor(sm);
+
         wpc = FileReader.createWPCFromFile(sm.getFileString());
 
         /* Error state happened and null was returned */
