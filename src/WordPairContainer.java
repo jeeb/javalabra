@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 /**
  * Allows for easier handling of a collection (ArrayList) of WordPair objects via relatively usable interfaces.
  */
-public class WordPairContainer {
+public class WordPairContainer implements Iterable<WordPair> {
     /* ArrayList full of WordPairs */
     private ArrayList<WordPair> wordpairs = null;
     /* Random number generator */
@@ -12,6 +13,11 @@ public class WordPairContainer {
 
     public WordPairContainer() {
         wordpairs = new ArrayList<WordPair>();
+    }
+
+    public Iterator<WordPair> iterator() {
+        Iterator<WordPair> iwp = wordpairs.iterator();
+        return iwp;
     }
 
     public boolean addWordPair(String word, String pair, String comment) {
