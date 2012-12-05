@@ -1,7 +1,11 @@
+import java.util.Scanner;
+
 /**
  * Allows for editing of word pairs in WordPairContainers
  */
 public class WordPairEditor {
+    private static Scanner reader = new Scanner(System.in);
+
     private static void printWPC(WordPairContainer wpc) {
         if( wpc == null ) {
             return;
@@ -44,8 +48,74 @@ public class WordPairEditor {
         return;
     }
 
-    private static boolean readOption() {
-        System.err.print("Input? \n"); // remember to remove the \n
+    private static boolean addWordPair(WordPairContainer wpc) {
+        String read_word = null;
+        String read_pair = null;
+        String read_comment = null;
+
+        System.err.println(":: { Addition mode }");
+        System.err.print("Word Input? ");
+
+        if( reader.hasNext() ) {
+            read_word = reader.next();
+        }
+        if( read_word == null ) {
+            return false;
+        }
+
+        System.err.print("Pair Input? ");
+
+        if( reader.hasNext() ) {
+            read_pair = reader.next();
+        }
+        if( read_pair == null ) {
+            return false;
+        }
+
+        System.err.print("Comment Input? ");
+
+        if( reader.hasNext() ) {
+            read_comment = reader.next();
+        }
+        if( read_comment == null ) {
+            return false;
+        }
+
+        if( read_comment.equalsIgnoreCase("") ) {
+            return wpc.addWordPair(read_word, read_pair);
+        } else {
+            return wpc.addWordPair(read_word, read_pair, read_comment);
+        }
+    }
+
+    private static boolean readOption(WordPairContainer wpc) {
+        if( wpc == null ) {
+            return false;
+        }
+
+        boolean retval;
+        String what_we_read = null;
+        System.err.print("Input? "); // remember to remove the \n
+
+        if( reader.hasNext() ) {
+            what_we_read = reader.nextLine();
+        }
+
+        if( what_we_read == null ) {
+            return false;
+        }
+
+        if( what_we_read.equalsIgnoreCase("a") ) {
+            // addition mode
+            return addWordPair(wpc);
+        } else if( what_we_read.equalsIgnoreCase("e") && !wpc.isEmpty() ) {
+            // editing mode
+        } else if( what_we_read.equalsIgnoreCase("r") && !wpc.isEmpty() ) {
+            // removal mode
+        } else if( what_we_read.equalsIgnoreCase("") ) {
+            return false;
+        }
+
         return true;
     }
 
@@ -79,8 +149,9 @@ public class WordPairEditor {
         do {
             printWPC(wpc);
             printOptions(wpc);
-            readOption();
-            we_are_running = false;
+            if ( !readOption(wpc) ) {
+                we_are_running = false;
+            }
             // give user the choice of either editing, creating or removing
             // read input
             // edit if given that output
