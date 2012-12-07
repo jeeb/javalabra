@@ -237,13 +237,26 @@ public class WordPairEditor {
 
         if( read.equalsIgnoreCase("a") ) {
             // addition mode
-            return addWordPair(wpc);
-        } else if( read.equalsIgnoreCase("e") && !wpc.isEmpty() ) {
+            addWordPair(wpc);
+            return true;
+        } else if( read.equalsIgnoreCase("e") ) {
             // editing mode
-            return editWordPair(wpc);
-        } else if( read.equalsIgnoreCase("r") && !wpc.isEmpty() ) {
+            if( wpc.isEmpty() ) {
+                System.err.println(":: Error, cannot edit word pairs when none exist.");
+            } else {
+                editWordPair(wpc);
+            }
+
+            return true;
+        } else if( read.equalsIgnoreCase("r") ) {
             // removal mode
-            return removeWordPair(wpc);
+            if( wpc.isEmpty() ) {
+                System.err.println(":: Error, cannot remove word pairs when none exist.");
+            } else {
+                removeWordPair(wpc);
+            }
+
+            return true;
         } else {
             return false;
         }
