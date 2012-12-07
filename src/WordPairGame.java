@@ -120,11 +120,11 @@ public class WordPairGame {
             if( !readOption(wpc, sm) ) {
                 running = false;
             }
-        } while( running );
 
-        if( sm.getMode() == SettingsManager.Mode.EDITOR ) {
-            return 1;
-        }
+            if( sm.getMode() == SettingsManager.Mode.EDITOR ) {
+                return 1;
+            }
+        } while( running );
 
         return 0;
     }
