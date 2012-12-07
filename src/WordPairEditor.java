@@ -72,6 +72,8 @@ public class WordPairEditor {
     }
 
     private static boolean editWordPair(WordPairContainer wpc) {
+        boolean running = true;
+
         if( wpc == null ) {
             return false;
         }
@@ -82,19 +84,22 @@ public class WordPairEditor {
         String   read_comment = null;
         WordPair read_wp      = null;
 
-
         System.err.println(":: { Editing mode }");
+        System.err.println(":: Please enter a value of an according type, everything else will cancel.");
 
-        System.err.print("Edit which? ");
-        read_int = StdinReader.readInteger();
-        if( read_int == null ) {
-            return false;
-        }
+        do {
+            System.err.print("Edit which word pair [number] ? ");
+            read_int = StdinReader.readInteger();
+            if( read_int == null ) {
+                return false;
+            }
 
-        if( read_int < 1 || read_int > wpc.getWordPairCount() ) {
-            System.err.println(":: Invalid number");
-            return false;
-        }
+            if( read_int < 1 || read_int > wpc.getWordPairCount() ) {
+                System.err.println(":: Invalid number");
+            } else {
+                running = false;
+            }
+        } while( running );
 
         read_wp = wpc.getWordPair(read_int - 1);
         if( read_wp == null ) {
@@ -104,17 +109,45 @@ public class WordPairEditor {
         System.err.println(":: Editing word pair number " + read_int + ", {\n" +
                            read_wp.toString() + ":: }");
 
-        System.err.print("Word Input? ");
-        read_word = StdinReader.readLine();
-        if( read_word == null ) {
-            return false;
-        }
+        System.err.println(":: Please enter a value of an according type, empty input will leave value unmodified.");
 
-        System.err.print("Pair Input? ");
-        read_pair = StdinReader.readLine();
-        if( read_pair == null ) {
-            return false;
-        }
+        running = true;
+
+        do {
+            System.err.print("Word Input [non-empty] ? ");
+            read_word = StdinReader.readLine();
+            if( read_word == null ) {
+                return false;
+            }
+
+            if( read_word.equalsIgnoreCase("") ) {
+                System.err.println(":: Empty input, using original value");
+                read_word = read_wp.getWord();
+                running = false;
+            } else {
+                running = false;
+            }
+        } while( running );
+
+        running = true;
+
+        do {
+            System.err.print("Pair Input [non-empty] ? ");
+            read_pair = StdinReader.readLine();
+            if( read_pair == null ) {
+                return false;
+            }
+
+            if( read_pair.equalsIgnoreCase("") ) {
+                System.err.println(":: Empty input, using original value");
+                read_pair = read_wp.getPair();
+                running = false;
+            } else {
+                running = false;
+            }
+        } while( running );
+
+        System.err.println(":: Please enter a value, can be empty. Cannot cancel.");
 
         System.err.print("Comment Input? ");
         read_comment = StdinReader.readLine();
@@ -122,10 +155,19 @@ public class WordPairEditor {
             return false;
         }
 
+        if( read_word.equals(read_wp.getWord()) && read_pair.equals(read_wp.getPair()) &&
+            read_comment.equals(read_wp.getComment()) ) {
+            // Don't change word pair's data
+            System.err.println(":: Data unchanged, returning.");
+            return true;
+        }
+
         return read_wp.setContents(read_word, read_pair, read_comment);
     }
 
     private static boolean removeWordPair(WordPairContainer wpc) {
+        boolean running = true;
+
         if( wpc == null ) {
             return false;
         }
@@ -133,17 +175,22 @@ public class WordPairEditor {
         Integer read_int    = null;
 
         System.err.println(":: { Removal mode }");
-        System.err.print("Remove which? ");
+        System.err.println(":: Please enter a value of an according type, everything else will cancel.");
 
-        read_int = StdinReader.readInteger();
-        if( read_int == null ) {
-            return false;
-        }
+        do {
+            System.err.print("Remove which word pair [number] ? ");
 
-        if( read_int < 1 || read_int > wpc.getWordPairCount() ) {
-            System.err.println(":: Invalid number");
-            return false;
-        }
+            read_int = StdinReader.readInteger();
+            if( read_int == null ) {
+                return false;
+            }
+
+            if( read_int < 1 || read_int > wpc.getWordPairCount() ) {
+                System.err.println(":: Error: Number out of range!");
+            } else {
+                running = false;
+            }
+        } while( running );
 
         return wpc.removeWordPair(wpc.getWordPair(read_int - 1));
     }
