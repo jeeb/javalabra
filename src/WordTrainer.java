@@ -17,7 +17,9 @@ public class WordTrainer {
 
         CLIArgumentsParser.parseArguments(args, sm);
 
-        wpc = WordPairEditor.runEditor(sm);
+        if( sm.getMode() == SettingsManager.Mode.EDITOR ) {
+            wpc = WordPairEditor.runEditor(sm);
+        }
 
         wpc = FileReader.createWPCFromFile(sm.getFileString());
 
