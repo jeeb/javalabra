@@ -111,7 +111,7 @@ public class WordPairGame {
         if( wpc.isEmpty() ) {
             System.err.println(":: Cannot play with no word pairs. Moving to editor.");
             sm.setMode(SettingsManager.Mode.EDITOR);
-            return 0;
+            return -2;
         }
 
         do {
@@ -121,6 +121,10 @@ public class WordPairGame {
                 running = false;
             }
         } while( running );
+
+        if( sm.getMode() == SettingsManager.Mode.EDITOR ) {
+            return 1;
+        }
 
         return 0;
     }
