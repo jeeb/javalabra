@@ -19,15 +19,19 @@ public class WordTrainer {
 
         if( sm.getMode() == SettingsManager.Mode.EDITOR ) {
             wpc = WordPairEditor.runEditor(sm);
+        } else {
+            wpc = FileReader.createWPCFromFile(sm.getFileString());
         }
-
-        wpc = FileReader.createWPCFromFile(sm.getFileString());
 
         /* Error state happened and null was returned */
         if( wpc == null ) {
-            System.err.println("Error state happened, exiting program");
+            System.err.println("Uh-oh, either editor or file reading returned null!");
             System.exit(1);
         }
+
+        WordPairGame.playGame(wpc, sm);
+
+        wpc = FileReader.createWPCFromFile(sm.getFileString());
 
         /*
          * Write the container's contents into a file called "herp" for debugging purposes.
