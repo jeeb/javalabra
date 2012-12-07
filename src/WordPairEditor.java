@@ -84,6 +84,68 @@ public class WordPairEditor {
         return wpc.addWordPair(read_word, read_pair, read_comment);
     }
 
+    private static boolean editWordPair(WordPairContainer wpc) {
+        if( wpc == null ) {
+            return false;
+        }
+
+        int      read_int     = -1;
+        String   read_word    = null;
+        String   read_pair    = null;
+        String   read_comment = null;
+        WordPair read_wp      = null;
+
+
+        System.err.println(":: { Editing mode }");
+        System.err.print("Edit which? ");
+
+        if( reader.hasNextInt() ) {
+            read_int = reader.nextInt();
+        }
+
+        if( read_int < 1 || read_int > wpc.getWordPairCount() ) {
+            System.err.println(":: Invalid number");
+            return false;
+        }
+
+        read_wp = wpc.getWordPair(read_int - 1);
+        if( read_wp == null ) {
+            return false;
+        }
+
+        System.err.println(":: Editing word pair number " + read_int + ", {\n" +
+                           read_wp.toString() + ":: }");
+
+        System.err.print("Word Input? ");
+
+        if( reader.hasNext() ) {
+            read_word = reader.next();
+        }
+        if( read_word == null ) {
+            return false;
+        }
+
+        System.err.print("Pair Input? ");
+
+        if( reader.hasNext() ) {
+            read_pair = reader.next();
+        }
+        if( read_pair == null ) {
+            return false;
+        }
+
+        System.err.print("Comment Input? ");
+
+        if( reader.hasNext() ) {
+            read_comment = reader.next();
+        }
+        if( read_comment == null ) {
+            return false;
+        }
+
+        return read_wp.setContents(read_word, read_pair, read_comment);
+    }
+
     private static boolean readOption(WordPairContainer wpc) {
         if( wpc == null ) {
             return false;
@@ -105,6 +167,7 @@ public class WordPairEditor {
             return addWordPair(wpc);
         } else if( what_we_read.equalsIgnoreCase("e") && !wpc.isEmpty() ) {
             // editing mode
+            return editWordPair(wpc);
         } else if( what_we_read.equalsIgnoreCase("r") && !wpc.isEmpty() ) {
             // removal mode
         } else {
