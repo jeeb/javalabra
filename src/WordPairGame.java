@@ -91,7 +91,7 @@ public class WordPairGame {
         }
 
         if( read.equalsIgnoreCase("n") ) {
-            // wordTrainerLoop(wpc, sm);
+            wordTrainerLoop(wpc);
             return true;
         } else if( read.equalsIgnoreCase("e") ) {
             sm.setMode( SettingsManager.Mode.EDITOR );
