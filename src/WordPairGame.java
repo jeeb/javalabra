@@ -17,35 +17,101 @@ public class WordPairGame {
         System.err.println(":::::::::::::::::::::::::::::::");
     }
 
-   private static boolean readOption(WordPairContainer wpc, SettingsManager sm) {
-       if( wpc == null ) {
-           return false;
-       }
+    private static boolean printWordPair(WordPair wp) {
+        if( wp == null ) {
+            return false;
+        }
 
-       String read = null;
+        System.out.println(":: Here is a word, what is its pair or answer?");
+        System.out.println(":: > \"" + wp.getWord() + "\"");
+        System.out.println(":: Hint/Comment: " + wp.getComment());
 
-       System.err.print("Input? ");
-       read = StdinReader.readLine();
-       if( read == null ) {
-           return false;
-       }
+        return true;
+    }
 
-       if( read.equalsIgnoreCase("n") ) {
-           // wordTrainerLoop(wpc, sm);
-           return true;
-       } else if( read.equalsIgnoreCase("e") ) {
-           sm.setMode( SettingsManager.Mode.EDITOR );
-           return true;
-       } else {
-           return false;
-       }
-   }
+    private static boolean askAndCheckAnswer(WordPair wp) {
+        if( wp == null ) {
+            return false;
+        }
+
+        String answer = StdinReader.readLine();
+        if( answer == null ) {
+            return false;
+        }
+
+        if( answer.equalsIgnoreCase("") ) {
+            return false;
+        } else if( answer.equalsIgnoreCase(wp.getPair()) ) {
+            System.err.print(":: Yes! The pair or answer to \"" + wp.getWord() + "\" is\n " +
+                             "\"" + wp.getPair() + "\"");
+            return true;
+        } else {
+            System.err.println(":: Unfortunately you were incorrect. The pair or answer to \"" + wp.getWord() + "\" " +
+                               "is \"" + wp.getPair() + "\"");
+            return true;
+        }
+    }
+
+    private static boolean wordTrainerLoop(WordPairContainer wpc) {
+        boolean running = true;
+
+        if( wpc == null ) {
+            return false;
+        }
+
+        WordPair wp = null;
+
+        do {
+            wp = wpc.getRandomWordPair();
+            if( wp == null ) {
+                return false;
+            }
+
+            printWordPair(wp);
+
+            if( !askAndCheckAnswer(wp) ) {
+                running = false;
+            }
+        } while( running );
+
+        return true;
+    }
+
+    private static boolean readOption(WordPairContainer wpc, SettingsManager sm) {
+        if( wpc == null ) {
+            return false;
+        }
+
+        String read = null;
+
+        System.err.print("Input? ");
+        read = StdinReader.readLine();
+        if( read == null ) {
+            return false;
+        }
+
+        if( read.equalsIgnoreCase("n") ) {
+            // wordTrainerLoop(wpc, sm);
+            return true;
+        } else if( read.equalsIgnoreCase("e") ) {
+            sm.setMode( SettingsManager.Mode.EDITOR );
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public static int playGame(WordPairContainer wpc, SettingsManager sm) {
         boolean running = true;
 
         if( wpc == null ) {
             return -1;
+        }
+
+        if( wpc.isEmpty() ) {
+            System.err.println(":: Cannot play with no word pairs. Moving to editor.");
+            sm.setMode(SettingsManager.Mode.EDITOR);
+            return 0;
         }
 
         do {

@@ -299,6 +299,8 @@ public class WordPairEditor {
             }
         } while( we_are_running );
 
+        sm.setMode(SettingsManager.Mode.GAME);
+
         return wpc;
     }
 }
