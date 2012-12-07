@@ -1,0 +1,132 @@
+              :: WORDTRAINER -OHJELMISTON KÄYTTÖOHJE ::
+
+0.0 - Alkupuhe:
+
+    Hei, ja tervetuloa wordtrainerin käyttöohjeeseen.
+    Wordtrainer on komentorivipohjainen sanaparien tenttausoohjelmisto.
+
+    Wordtrainer käyttää Javan versio 7:n I/O -ominaisuuksia, joten Javan
+    JRE versio 7 tarvitaan ohjelmiston käyttöä varten.
+
+    Ohjelmiston käyttöä varten tarvitaan myös WordTrainer -sanapariformaatin
+    mukainen sanaparitiedosto. Ohjelmiston mukana bin -hakemistossa on 'derp'-
+    niminen sanaparitiedosto.
+
+0.1 - Sisällysluettelo:
+
+    0.0   - Alkupuhe
+    0.1   - Sisällysluettelo
+
+    1.0   - Ohjelmiston käynnistäminen
+    1.1   - New game - Uusi peli
+    1.2.0 - Editor - Muokkausominaisuus
+    1.2.1 - Add - Sanaparin lisäys
+    1.2.2 - Edit - Sanaparin muokkaus
+    1.2.3 - Remove - Sanaparin poisto
+    1.3   - Mahdolliset komentoriviparametrit
+
+1.0 - Ohjelmiston käynnistäminen:
+
+    Ohjelmiston käynnistämistä varten siirrytään ohjelmiston jar-paketin
+    hakemistoon, ja annetaan komento
+
+        'java -jar WordTrainer.jar'
+
+    Tällä tavalla ohjelmiston pitäisi käynnistyä, ja päävalikon tulla esiin.
+    Mikäli mitään muita komentoriviparametreja ei olla annettu, luetaan
+    sanaparit 'derp' -nimisestä tiedostosta muistiin.
+
+    Päävalikossa on kolme vaihtoehtoa:
+     - New game      ("Uusi peli")
+     - Editor        ("Muokkausominaisuus")
+     - Quit the game ("Pelin lopetus")
+
+    Haluamansa vaihtoehdon voi valita kirjoittamalla [] -merkkien välissä
+    olevan merkin ja painamalla rivinvaihtopainiketta ("enter" -painiketta)
+    näppäimistöllä, ja pois pääsee myös kirjoittamalla ihan mitä tahansa muuta.
+    Komentorivitulkki ei välitä siitä, onko kyseinen merkki kirjoitettu isoin
+    tai pienin kirjaimin, kumpi tahansa käy.
+
+    Ohjelmiston lopettamisen aikana käyttäjä viedään takaisin komentorivi-
+    järjestelmäänsä, ja mahdollisesti muokattu sanaparikokonaisuus kirjoitetaan
+    levylle käytettyyn sanaparitiedostoon (ellei tiedostonimeä olla erikseen
+    säädetty komentoriviparametrina, sanaparitiedoston nimi on 'derp').
+
+    Mikäli 'derp' -nimistä tiedostoa ei ole ohjelman ajetussa hakemistossa, tai
+    jos sitä ei pystytä avaamaan, WordTrainer avaa muokkausominaisuudessaan
+    uuden sanaparikokonaisuuden (WPC, Word Pair Container), jonka avulla tämä
+    tiedosto voidaan luoda.
+
+1.1 - New game - Uusi peli:
+
+    Käyttäjän valitessa uuden pelin, ohjelmisto tenttii käyttäjää sanapari
+    kerrallaan, ja tenttiin vastataan kirjoittamalla vastaus ja painamalla
+    rivinvaihtopainiketta. Jos vastaus tai arvaus on oikea, ohjelmisto onnitte-
+    lee käyttäjää, kun taas jos vastaus tai arvaus ei ole oikea, ohjelmisto
+    kertoo käyttäjälle oikean vastauksen uudelleen kokeilua varten.
+
+    Jos käyttäjä ei kirjoita mitään, ja painaa vain rivinvaihtopainiketta, peli
+    palaa takaisin päävalikkoon.
+
+1.2.0 - Editor - Muokkausominaisuus:
+
+    Käyttäjän valitessa muokkausominaisuuden, ohjelmisto siirtyy suoraan siihen.
+    Muokkausominaisuus antaa käyttäjän muokata tietyn sanaparitiedoston
+    sisältöä.
+
+    Sen ominaisuudet ovat:
+     - Add    ("Lisää Sanapari")
+     - Edit   ("Muokkaa sanaparia")
+     - Remove ("Poista sanapari")
+     - Quit   ("Muokkausominaisuudesta poistuminen")
+
+    Haluamansa vaihtoehdon voi valita samalla tavalla kuin pelimoodin
+    päävalikossa, kirjoittamalla [] -merkkien välissä olevan merkin.
+
+    Tuntemattomalla syötteellä poistutaan muokkausominaisuudesta takaisin peli-
+    ominaisuuden puolelle.
+
+    1.2.1 - Add - Sanaparin lisäys
+
+        Käyttäjän valitessa sanaparin lisäyksen, ohjelmisto ohjeistaa käyttäjän
+        lisäysprosessin läpi. Tapauksissa, joissa tyhjä syöte ei ole
+        mahdollinen, tyhjällä syötteellä palataan takaisin muokkausominaisuuden
+        päävalikkoon.
+
+        Jos tyhjä syöte on mahdollinen, palausominaisuutta ei ole.
+
+    1.2.2 - Edit - Sanaparin muokkaus
+
+        Käyttäjän valitessa sanaparin muokkauksen, ohjelmisto ohjeistaa käyttä-
+        jän muokkausprosesin läpi. Ensin valitaan kuinka monetta sanaparia muo-
+        kataan. Tämän jälkeen kyseisen sanaparin tietoja muokataan.
+
+        Tapauksissa, joissa tyhjä syöte ei ole mahdollinen, tyhjällä syötteellä
+        ei muokata kys. sanaparin kys. dataa. Jos tyhjä syöte on mahdollinen,
+        nopeutettua kopiointivaihtoehtoa ei ole.
+
+    1.2.3 - Remove - Sanaparin poisto
+
+        Käyttäjän valitessa sanaparin poiston, ohjelmisto ohjeistaa käyttäjän
+        muokkausprosessin läpi, jossa valitaan monesko sanapari poistetaan.
+
+        Jos syöte on tyhjä taikka mahdoton (ei numero), palataan takaisin muok-
+        kausominaisuuden päävalikkoon. Jos taseen syöte on numerona liian suuri
+        taikka pieni, annetaan käyttäjälle varoitus, sekä annetaan käyttäjään
+        kokeilla uudestaan.
+
+1.3 - Mahdolliset komentoriviparametrit
+
+    '--wpfile' tai '-w'
+        * Asettaa sanaparitiedoston paikan verrattuna ohjelmiston ajohakemistoon
+        * Esim: --wpfile sanaparit.txt
+
+    '--mode' tai '-m'
+        * Asettaa ohjelmiston aloitusmoodin, joka voi olla joko 'editor' tai
+          'game'.
+        * Esim: --mode editor
+                --mode game
+
+
+
+Jan Ekström, 7.12.2012
