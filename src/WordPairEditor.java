@@ -44,23 +44,50 @@ public class WordPairEditor {
     }
 
     private static boolean addWordPair(WordPairContainer wpc) {
-        String read_word = null;
-        String read_pair = null;
+        boolean running = true;
+
+        if( wpc == null ) {
+            return false;
+        }
+
+        String read_word    = null;
+        String read_pair    = null;
         String read_comment = null;
 
         System.err.println(":: { Addition mode }");
+        System.err.println(":: Please enter a value of an according type, empty input will abort.");
 
-        System.err.print("Word Input? ");
-        read_word = StdinReader.readLine();
-        if( read_word == null ) {
-            return false;
-        }
+        do {
+            System.err.print("Word Input [non-empty] ? ");
+            read_word = StdinReader.readLine();
+            if( read_word == null ) {
+                return false;
+            }
 
-        System.err.print("Pair Input? ");
-        read_pair = StdinReader.readLine();
-        if( read_pair == null ) {
-            return false;
-        }
+            if( read_word.equalsIgnoreCase("") ) {
+                System.err.println(":: Empty input, aborting.");
+                return false;
+            } else {
+                running = false;
+            }
+        } while( running );
+
+        running = true;
+
+        do {
+            System.err.print("Pair Input [non-empty] ? ");
+            read_pair = StdinReader.readLine();
+            if( read_pair == null ) {
+                return false;
+            }
+
+            if( read_pair.equalsIgnoreCase("") ) {
+                System.err.println(":: Empty input, aborting.");
+                return false;
+            } else {
+                running = false;
+            }
+        } while( running );
 
         System.err.print("Comment Input? ");
         read_comment = StdinReader.readLine();
@@ -121,7 +148,7 @@ public class WordPairEditor {
             }
 
             if( read_word.equalsIgnoreCase("") ) {
-                System.err.println(":: Empty input, using original value");
+                System.err.println(":: Empty input, using original value.");
                 read_word = read_wp.getWord();
                 running = false;
             } else {
@@ -139,7 +166,7 @@ public class WordPairEditor {
             }
 
             if( read_pair.equalsIgnoreCase("") ) {
-                System.err.println(":: Empty input, using original value");
+                System.err.println(":: Empty input, using original value.");
                 read_pair = read_wp.getPair();
                 running = false;
             } else {
