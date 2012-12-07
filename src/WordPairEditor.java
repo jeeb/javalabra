@@ -264,9 +264,9 @@ public class WordPairEditor {
     }
 
     /**
-     *
-     * @param sm
-     * @return
+     * Runs the editor loop and thus runs the editor part of the application
+     * @param sm The SettingsManager object to be used in the editor
+     * @return a WordPairContainer if successful, null if an error happened
      */
     public static WordPairContainer runEditor(SettingsManager sm) {
         boolean we_are_running = true;

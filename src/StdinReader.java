@@ -13,6 +13,11 @@ public class StdinReader {
     // We also have a BufferedReader here
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, charset));
 
+    /**
+     * Reads a single line from the command line (stdin) (aka 'until the next newline character').
+     *
+     * @return a String object with the contents of the read line if successful, null otherwise
+     */
     public static String readLine() {
         String string = null;
 
@@ -29,6 +34,12 @@ public class StdinReader {
         }
     }
 
+    /**
+     * Reads a single line from the command line (stdin) (aka 'until the next newline character'), and parses it into
+     * an Integer object.
+     *
+     * @return an Integer object with the contents of the parsed read line if successful, null otherwise
+     */
     public static Integer readInteger() {
         String string = null;
         int    i      = -1;

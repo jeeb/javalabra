@@ -31,7 +31,6 @@ public class FileWriter {
     /**
      * Writes the given String object to the given BufferedWriter object.
      *
-     * TODO: !Make this write even if the file does already exist but is writeable!
      * @param bw The BufferedWriter object that is to be used when writing the string.
      * @param string_to_be_written The String object that is to be written to the BufferedWriter object.
      * @return true if successful, false otherwise.

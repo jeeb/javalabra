@@ -105,6 +105,19 @@ public class WordPairGame {
         }
     }
 
+    /**
+     * Starts the game loop, begins the Word Trainer game
+     * @param wpc The WordPairContainer object to be used during gameplay
+     * @param sm  The SettingsManager object to be used during gameplay
+     * @return integer value that sends out the returned result of the function.
+     *
+     * This can be one of the next values:
+     *  -  '0' if nothing special happened and everything went fine.
+     *  - '-1' if an error state was found during initialization.
+     *  -  '1' if the user switched to the editing mode.
+     *  -  '2' if after the game loop ends the WordPairContainer is found to be empty.
+     *
+     */
     public static int playGame(WordPairContainer wpc, SettingsManager sm) {
         boolean running = true;
 
