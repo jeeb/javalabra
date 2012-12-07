@@ -238,6 +238,7 @@ public class WordPairEditor {
         if( read.equalsIgnoreCase("a") ) {
             // addition mode
             addWordPair(wpc);
+
             return true;
         } else if( read.equalsIgnoreCase("e") ) {
             // editing mode
@@ -296,10 +297,6 @@ public class WordPairEditor {
             if( !readOption(wpc) ) {
                 we_are_running = false;
             }
-            // give user the choice of either editing, creating or removing
-            // read input
-            // edit if given that output
-            // otherwise set we_are_running to false
         } while( we_are_running );
 
         return wpc;
