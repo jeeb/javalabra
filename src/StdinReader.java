@@ -46,7 +46,6 @@ public class StdinReader {
             System.err.println(":: Error reading input:\n\t" + e);
             return null;
         } catch (NumberFormatException e) {
-            System.err.println(":: Error reading input:\n\t" + e);
             return null;
         }
     }
