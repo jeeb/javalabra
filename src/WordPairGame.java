@@ -22,9 +22,9 @@ public class WordPairGame {
             return false;
         }
 
-        System.out.println(":: Here is a word, what is its pair or answer?");
-        System.out.println(":: > \"" + wp.getWord() + "\"");
-        System.out.println(":: Hint/Comment: " + wp.getComment());
+        System.err.println(":: Here is a word, what is its pair or answer?");
+        System.err.println(":: > \"" + wp.getWord() + "\"");
+        System.err.println(":: Hint/Comment: " + wp.getComment());
 
         return true;
     }
