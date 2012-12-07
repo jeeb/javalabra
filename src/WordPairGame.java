@@ -91,6 +91,10 @@ public class WordPairGame {
         }
 
         if( read.equalsIgnoreCase("n") ) {
+            if( wpc.isEmpty() ) {
+                System.err.println(":: Cannot play with no word pairs.");
+                return true;
+            }
             wordTrainerLoop(wpc);
             return true;
         } else if( read.equalsIgnoreCase("e") ) {
@@ -108,12 +112,6 @@ public class WordPairGame {
             return -1;
         }
 
-        if( wpc.isEmpty() ) {
-            System.err.println(":: Cannot play with no word pairs. Moving to editor.");
-            sm.setMode(SettingsManager.Mode.EDITOR);
-            return -2;
-        }
-
         do {
             printMainMenu();
 
@@ -125,6 +123,10 @@ public class WordPairGame {
                 return 1;
             }
         } while( running );
+
+        if( wpc.isEmpty() ) {
+            return 2;
+        }
 
         return 0;
     }

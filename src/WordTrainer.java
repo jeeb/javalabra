@@ -29,23 +29,29 @@ public class WordTrainer {
             /* Error state happened and null was returned */
             if( wpc == null ) {
                 System.err.println("Uh-oh, either editor or file reading returned null!");
-                System.exit(1);
+                sm.setMode(SettingsManager.Mode.EDITOR);
+                continue;
             }
 
             retval = WordPairGame.playGame(wpc, sm);
 
-            if( retval != -2 && retval != 1 ) {
+            if( retval != 1 ) {
                 running = false;
             }
 
         } while( running );
 
-        /*
-         * Write the container's contents into a file.
-         * Does not work if the file exists already.
-         */
-        if( !FileWriter.writeWordPairContainerToFile(wpc, sm.getFileString()) ) {
-            retval = 1;
+        /* If we didn't exit with an empty WordPairContainer... */
+        if( retval != 2) {
+            /*
+            * Write the container's contents into a file.
+            * Does not work if the file exists already.
+            */
+            if( !FileWriter.writeWordPairContainerToFile(wpc, sm.getFileString()) ) {
+                retval = 1;
+            }
+        } else {
+            retval = 0;
         }
 
         /* Exit */
