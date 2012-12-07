@@ -37,12 +37,13 @@ public class WordPairEditor {
 
         System.err.println(":::::::::::: OPTS :::::::::::::");
 
-        System.err.print(":: [A]dd, ");
+        System.err.print(":: [A]dd");
         if( !wpc.isEmpty() ) {
-            System.err.println("[E]dit, [R]emove");
+            System.err.println(", [E]dit, [R]emove");
         } else {
             System.err.println("");
         }
+        System.err.println(":: [Q]uit (or any other key)");
         System.err.println(":::::::::::::::::::::::::::::::");
 
         return;
@@ -146,6 +147,28 @@ public class WordPairEditor {
         return read_wp.setContents(read_word, read_pair, read_comment);
     }
 
+    private static boolean removeWordPair(WordPairContainer wpc) {
+        if( wpc == null ) {
+            return false;
+        }
+
+        int read_int = -1;
+
+        System.err.println(":: { Removal mode }");
+        System.err.print("Remove which? ");
+
+        if( reader.hasNextInt() ) {
+            read_int = reader.nextInt();
+        }
+
+        if( read_int < 1 || read_int > wpc.getWordPairCount() ) {
+            System.err.println(":: Invalid number");
+            return false;
+        }
+
+        return wpc.removeWordPair(wpc.getWordPair(read_int - 1));
+    }
+
     private static boolean readOption(WordPairContainer wpc) {
         if( wpc == null ) {
             return false;
@@ -170,11 +193,10 @@ public class WordPairEditor {
             return editWordPair(wpc);
         } else if( what_we_read.equalsIgnoreCase("r") && !wpc.isEmpty() ) {
             // removal mode
+            return removeWordPair(wpc);
         } else {
             return false;
         }
-
-        return true;
     }
 
     /**
