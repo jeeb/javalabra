@@ -34,8 +34,6 @@ public class WordPairEditor {
             " )");
             i++;
         }
-
-        return;
     }
 
     private static void printOptions(WordPairContainer wpc) {
@@ -53,8 +51,6 @@ public class WordPairEditor {
         }
         System.err.println(":: [Q]uit (or any other key)");
         System.err.println(":::::::::::::::::::::::::::::::");
-
-        return;
     }
 
     private static boolean addWordPair(WordPairContainer wpc) {
