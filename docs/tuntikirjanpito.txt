@@ -47,3 +47,17 @@
 * Lisätty CLIArgumentsParser -luokka komentoriviargumenttien parsintaan
 * Poistettu debug -printtausta
 * Lisätty testit Settings Managerille että komentoriviargumenttiparserille
+
+- 05.12.2012 [09-13]
+* Lisätty WordPairien editori
+* Tehty WordPairContainereista iteroituvia
+
+- 07.12.2012 [17-22]
+* Lisätty komentorivikäyttöliittymä editorille
+* Lisätty editoriin poisto- ja lisäysfunktiot
+* Siirrytty InputStreamReader + BufferedReader -pohjaiseen komentorivin lukemiseen
+* Siirretty komentorivin lukufunktiot omaan luokkaansa
+* Tehty editorista käytettävämpi
+* Lisätty pelimoduuli ja peliluuppi
+* Lisätty tuki kaiken laisille erikoistapauksille
+* Lisätty JAR-arkkiivi
