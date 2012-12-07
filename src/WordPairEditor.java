@@ -1,10 +1,18 @@
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 
 /**
  * Allows for editing of word pairs in WordPairContainers
  */
 public class WordPairEditor {
-    private static Scanner reader = new Scanner(System.in);
+    // We shall read in lolUTF-8
+    private static Charset charset = Charset.forName("UTF-8");
+
+    // We also have a BufferedReader here
+    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, charset));
 
     private static void printWPC(WordPairContainer wpc) {
         if( wpc == null ) {
@@ -55,34 +63,31 @@ public class WordPairEditor {
         String read_comment = null;
 
         System.err.println(":: { Addition mode }");
-        System.err.print("Word Input? ");
 
-        if( reader.hasNext() ) {
-            read_word = reader.next();
-        }
-        if( read_word == null ) {
+        try {
+            System.err.print("Word Input? ");
+            read_word = reader.readLine();
+            if( read_word == null ) {
+                return false;
+            }
+
+            System.err.print("Pair Input? ");
+            read_pair = reader.readLine();
+            if( read_pair == null ) {
+                return false;
+            }
+
+            System.err.print("Comment Input? ");
+            read_comment = reader.readLine();
+            if( read_comment == null ) {
+                return false;
+            }
+
+            return wpc.addWordPair(read_word, read_pair, read_comment);
+        } catch (IOException e) {
+            System.err.println(":: Error reading input:\n\t" + e);
             return false;
         }
-
-        System.err.print("Pair Input? ");
-
-        if( reader.hasNext() ) {
-            read_pair = reader.next();
-        }
-        if( read_pair == null ) {
-            return false;
-        }
-
-        System.err.print("Comment Input? ");
-
-        if( reader.hasNext() ) {
-            read_comment = reader.next();
-        }
-        if( read_comment == null ) {
-            return false;
-        }
-
-        return wpc.addWordPair(read_word, read_pair, read_comment);
     }
 
     private static boolean editWordPair(WordPairContainer wpc) {
@@ -98,53 +103,54 @@ public class WordPairEditor {
 
 
         System.err.println(":: { Editing mode }");
-        System.err.print("Edit which? ");
 
-        if( reader.hasNextInt() ) {
-            read_int = reader.nextInt();
-        }
+        try {
+            System.err.print("Edit which? ");
+            read_word = reader.readLine();
+            if( read_word == null ) {
+                return false;
+            }
 
-        if( read_int < 1 || read_int > wpc.getWordPairCount() ) {
-            System.err.println(":: Invalid number");
+            read_int = Integer.parseInt(read_word, 10);
+
+            if( read_int < 1 || read_int > wpc.getWordPairCount() ) {
+                System.err.println(":: Invalid number");
+                return false;
+            }
+
+            read_wp = wpc.getWordPair(read_int - 1);
+            if( read_wp == null ) {
+                return false;
+            }
+
+            read_word = null;
+
+            System.err.println(":: Editing word pair number " + read_int + ", {\n" +
+                               read_wp.toString() + ":: }");
+
+            System.err.print("Word Input? ");
+            read_word = reader.readLine();
+            if( read_word == null ) {
+                return false;
+            }
+
+            System.err.print("Pair Input? ");
+            read_pair = reader.readLine();
+            if( read_pair == null ) {
+                return false;
+            }
+
+            System.err.print("Comment Input? ");
+            read_comment = reader.readLine();
+            if( read_comment == null ) {
+                return false;
+            }
+
+            return read_wp.setContents(read_word, read_pair, read_comment);
+        } catch (IOException e) {
+            System.err.println(":: Error reading input:\n\t" + e);
             return false;
         }
-
-        read_wp = wpc.getWordPair(read_int - 1);
-        if( read_wp == null ) {
-            return false;
-        }
-
-        System.err.println(":: Editing word pair number " + read_int + ", {\n" +
-                           read_wp.toString() + ":: }");
-
-        System.err.print("Word Input? ");
-
-        if( reader.hasNext() ) {
-            read_word = reader.next();
-        }
-        if( read_word == null ) {
-            return false;
-        }
-
-        System.err.print("Pair Input? ");
-
-        if( reader.hasNext() ) {
-            read_pair = reader.next();
-        }
-        if( read_pair == null ) {
-            return false;
-        }
-
-        System.err.print("Comment Input? ");
-
-        if( reader.hasNext() ) {
-            read_comment = reader.next();
-        }
-        if( read_comment == null ) {
-            return false;
-        }
-
-        return read_wp.setContents(read_word, read_pair, read_comment);
     }
 
     private static boolean removeWordPair(WordPairContainer wpc) {
@@ -152,14 +158,24 @@ public class WordPairEditor {
             return false;
         }
 
-        int read_int = -1;
+        String read_string = null;
+        int    read_int    = -1;
 
         System.err.println(":: { Removal mode }");
         System.err.print("Remove which? ");
 
-        if( reader.hasNextInt() ) {
-            read_int = reader.nextInt();
+        try {
+            read_string = reader.readLine();
+        } catch (IOException e) {
+            System.err.println(":: Error reading input:\n\t" + e);
+            return false;
         }
+
+        if( read_string == null ) {
+            return false;
+        }
+
+        read_int = Integer.parseInt(read_string, 10);
 
         if( read_int < 1 || read_int > wpc.getWordPairCount() ) {
             System.err.println(":: Invalid number");
@@ -177,8 +193,11 @@ public class WordPairEditor {
         String what_we_read = null;
         System.err.print("Input? "); // remember to remove the \n
 
-        if( reader.hasNext() ) {
-            what_we_read = reader.next();
+        try {
+            what_we_read = reader.readLine();
+        } catch (IOException e) {
+            System.err.println(":: Error reading input:\n\t" + e);
+            return false;
         }
 
         if( what_we_read == null ) {
