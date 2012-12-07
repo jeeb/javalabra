@@ -13,7 +13,7 @@ public class StdinReader {
     // We also have a BufferedReader here
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, charset));
 
-    public static String readString() {
+    public static String readLine() {
         String string = null;
 
         try {
