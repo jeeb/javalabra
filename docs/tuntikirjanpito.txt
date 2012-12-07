@@ -61,3 +61,5 @@
 * Lisätty pelimoduuli ja peliluuppi
 * Lisätty tuki kaiken laisille erikoistapauksille
 * Lisätty JAR-arkkiivi
+* Lisätty ANT-makefile
+
